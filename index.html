@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visa Companion, help with your France visa</title>
+<meta name="description" content="Help with your France visa and residence permit, from people who have been through it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F0FA;--surface:#FFFFFF;--ink:#231942;--muted:#3D3260;--accent:#C2411C;--on-accent:#FFFFFF;--line:#CFC6E6;--feat-bg:#231942;--feat-text:#FFFFFF;--feat-muted:#E4DDF5;--error:#B42318;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#17112B;--surface:#231942;--ink:#F4F0FA;--muted:#CFC6E6;--accent:#F08A63;--on-accent:#17112B;--line:#4A3D75;--feat-bg:#F4F0FA;--feat-text:#231942;--feat-muted:#3D3260;--error:#FDA29B}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;color:var(--ink)}
+h1{font-size:clamp(40px,7vw,64px);line-height:1.04;letter-spacing:-0.02em}
+h2{font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-0.01em}
+h3{font-size:22px}
+p{margin:0}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+.band{padding:80px 0}
+.surface{background:var(--surface)}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:var(--accent);color:var(--on-accent);font:700 18px var(--body);text-decoration:none;border:0;cursor:pointer}
+.btn:hover{filter:brightness(.92)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn.small{min-height:44px;padding:0 20px;font-size:15px;background:transparent;color:var(--ink);border:2px solid var(--ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 0}
+.logo{font-family:var(--display);font-weight:700;font-size:24px}
+.logo span{font-weight:500;color:var(--accent)}
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:56px;padding:32px 24px 88px}
+.hero .left{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.hero .lead{font-size:20px;max-width:540px}
+.hero .cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+.card{flex:1 1 340px;min-width:0;background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.ticks li{display:flex;gap:12px}
+.ticks li::before{content:"";flex:none;width:8px;height:8px;margin-top:10px;border-radius:50%;background:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:32px}
+.row>div{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.num{width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font:700 22px var(--display)}
+.stack{display:flex;flex-direction:column;gap:40px}
+.box{background:var(--surface);border-radius:28px;padding:32px}
+.prices{display:flex;flex-wrap:wrap;gap:24px}
+.price{flex:1 1 280px;min-width:0;border-radius:28px;padding:32px;background:var(--bg);display:flex;flex-direction:column;gap:14px}
+.price .amount{font:700 44px var(--display)}
+.price.feat{background:var(--feat-bg);color:var(--feat-text)}
+.price.feat .muted{color:var(--feat-muted)}
+.note{font-size:15px}
+
+/* Questionnaire */
+.formbox{max-width:720px;width:100%;margin:0 auto;background:var(--surface);border-radius:28px;padding:8px;overflow:hidden}
+.formbox iframe{display:block;width:100%;height:1450px;border:0;border-radius:22px;background:#fff}
+.quiz{max-width:720px;margin:0 auto;background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:24px}
+.progress{display:flex;gap:8px}
+.progress span{flex:1;height:6px;border-radius:99px;background:var(--line)}
+.progress span.on{background:var(--accent)}
+.steplabel{font-size:15px;font-weight:700;color:var(--muted)}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:20px}
+fieldset[hidden]{display:none}
+legend{padding:0;margin-bottom:4px;font:700 24px var(--display)}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label,.qlabel{font-weight:700;font-size:15px}
+.hint{font-size:14px;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;min-height:48px;padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font:400 17px var(--body)}
+textarea{min-height:120px;resize:vertical}
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice{display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 16px;border:2px solid var(--line);border-radius:14px;cursor:pointer}
+.choice:has(input:checked){border-color:var(--accent)}
+.choice input{width:20px;height:20px;margin:0;accent-color:var(--accent);flex:none}
+.check{display:flex;align-items:flex-start;gap:12px}
+.check input{flex:none;width:24px;height:24px;margin:2px 0 0;accent-color:var(--accent)}
+.check label{font-size:15px;color:var(--muted)}
+.nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.nav .btn{flex:1 1 160px}
+.hp{position:absolute;left:-5000px}
+.status{font-weight:700}
+.status.err{color:var(--error)}
+.done{display:flex;flex-direction:column;gap:12px;text-align:left}
+
+footer{background:var(--feat-bg);color:var(--feat-text);padding:40px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav>
+    <div class="logo">Visa <span>Companion</span></div>
+    <a class="btn small" href="#start">Tell us about your project</a>
+  </nav>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div class="left">
+    <p class="muted">Visas and residence permits for France</p>
+    <h1>Your France visa, with someone who has been through it.</h1>
+    <p class="lead muted">The paperwork, the documents, the appointments, the follow-ups. We have lived it ourselves, so we explain it simply and stay with you at every step.</p>
+    <div class="cta">
+      <a class="btn" href="#start">Tell us about your project</a>
+      <span class="muted note">Free, about 1 minute. We reply by email or WhatsApp.</span>
+    </div>
+  </div>
+  <aside class="card">
+    <h3>What you will no longer face alone</h3>
+    <ul class="ticks">
+      <li>Making sense of the list of required documents</li>
+      <li>Filling in forms without mistakes</li>
+      <li>Booking and tracking appointments</li>
+      <li>Chasing the prefecture when nothing moves</li>
+      <li>Knowing what to expect, step by step</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="band surface">
+  <div class="wrap stack">
+    <h2>How it works</h2>
+    <div class="row">
+      <div><div class="num">1</div><b>You tell us about your project</b><p class="muted">A short questionnaire. No documents needed at this stage.</p></div>
+      <div><div class="num">2</div><b>We reply by email or WhatsApp</b><p class="muted">We review your answers and write back with the right package for you. No unexpected phone calls.</p></div>
+      <div><div class="num">3</div><b>We move forward together</b><p class="muted">File prepared, appointments booked, follow-up until the end. A call only if you ask for one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack">
+    <h2>What we do, and what we don't</h2>
+    <div class="row">
+      <div class="box"><b>We take care of</b><p class="muted">Explaining the official process in plain language, organising your documents, filling in forms with your own information, booking your appointments, tracking your file, and supporting you when it gets long and stressful.</p></div>
+      <div class="box"><b>We don't do</b><p class="muted">Legal advice. We don't tell you which option is best for you, or whether your application will be accepted. For those questions, we connect you with a partner lawyer, with your file already prepared.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band surface">
+  <div class="wrap stack">
+    <h2>Three ways we can help</h2>
+    <div class="prices">
+      <div class="price"><b>A helping hand</b><div class="amount">€90</div><p class="muted">A review of your file to make sure nothing is missing, with a one-hour exchange by message or call, your choice.</p></div>
+      <div class="price feat"><b>The full file</b><div class="amount">€290</div><p class="muted">Complete file preparation, forms, appointment booking and a check-in at every stage.</p></div>
+      <div class="price"><b>Peace of mind</b><div class="amount">€490</div><p class="muted">Everything in the full file, plus follow-up with the prefecture and an introduction to a partner lawyer.</p></div>
+    </div>
+    <p class="muted note">Indicative prices. Tax stamps, translation fees and lawyer fees are not included.</p>
+  </div>
+</section>
+
+<section class="band" id="start">
+  <div class="wrap stack">
+    <h2 style="text-align:center">Tell us about your project</h2>
+
+    <p class="muted" style="text-align:center;max-width:620px;margin:0 auto">A few questions about you and your project. We reply by email or WhatsApp, and we only call you if you ask us to.</p>
+    <div class="formbox">
+      <iframe id="gform" title="Questionnaire" loading="lazy">Loading...</iframe>
+    </div>
+    <p class="muted note" style="text-align:center">Trouble seeing the form? <a id="gformlink" href="#" target="_blank" rel="noopener">Open it in a new tab</a></p>
+  </div>
+</section>
+
+<section class="band surface">
+  <div class="wrap stack">
+    <h2>Frequently asked questions</h2>
+    <div class="row">
+      <div><b>Are you lawyers?</b><p class="muted">No. We are people who went through these procedures ourselves. For any legal advice, we put you in touch with a lawyer.</p></div>
+      <div><b>Do you guarantee I will get the visa?</b><p class="muted">No, nobody can. The decision always belongs to the administration. We help you submit a complete and clear file.</p></div>
+      <div><b>What happens to my data?</b><p class="muted">The questionnaire asks only for the minimum. Documents are requested only once you agree, and you can ask for them to be deleted at any time.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Visa Companion, [CITY]. Administrative support services. We do not provide legal advice.</div>
+    <div><a href="#start">Legal notice</a> &nbsp; <a href="#start">Privacy</a></div>
+  </div>
+</footer>
+
+<script>
+// Paste your Google Form link here (from Send > <> embed, the address inside src="...")
+const GOOGLE_FORM_URL = "PASTE_YOUR_GOOGLE_FORM_LINK_HERE";
+
+const frame = document.getElementById('gform');
+const link = document.getElementById('gformlink');
+if (GOOGLE_FORM_URL.startsWith('http')) {
+  frame.src = GOOGLE_FORM_URL;
+  link.href = GOOGLE_FORM_URL.replace('embedded=true', '');
+} else {
+  frame.srcdoc = '<p style="font-family:sans-serif;padding:24px">The questionnaire is not connected yet.</p>';
+  frame.style.height = '120px';
+}
+</script>
+</body>
+</html>
